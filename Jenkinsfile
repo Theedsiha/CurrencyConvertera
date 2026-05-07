@@ -2,13 +2,11 @@ pipeline {
 
     agent any
 
-    stages {
+    tools {
+        maven 'Maven'
+    }
 
-        stage('Clone') {
-            steps {
-                echo 'Cloning Repository'
-            }
-        }
+    stages {
 
         stage('Build') {
             steps {
