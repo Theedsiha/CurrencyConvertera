@@ -2,22 +2,17 @@ pipeline {
 
     agent any
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK'
-    }
-
     stages {
 
-        stage('Clone Repository') {
+        stage('Clone') {
             steps {
-                git https://github.com/Theedsiha/CurrencyConverter.git
+                echo 'Cloning Repository'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                bat 'mvn compile'
             }
         }
 
@@ -25,23 +20,6 @@ pipeline {
             steps {
                 bat 'mvn test'
             }
-        }
-
-        stage('Package') {
-            steps {
-                bat 'mvn package'
-            }
-        }
-    }
-
-    post {
-
-        success {
-            echo 'Build Successful'
-        }
-
-        failure {
-            echo 'Build Failed'
         }
     }
 }
