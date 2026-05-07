@@ -11,7 +11,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/USERNAME/CurrencyConverter.git'
+                git https://github.com/Theedsiha/CurrencyConverter.git
             }
         }
 
